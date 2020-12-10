@@ -1,5 +1,9 @@
 # covid-19-tracker-rev1.1
 
+### `npm install`
+
+- Install first if you don't have node_modules
+
 ### `npm start`
 
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
