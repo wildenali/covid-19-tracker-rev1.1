@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { MenuItem, FormControl, Select, Menu } from '@material-ui/core'
 import './App.css';
 
 
 
 function App() {
+
+  const [countries, setCountries] = useState([
+    "USA",
+    "UK",
+    "India",
+    "Indonesia",
+  ]);
+
+  const [areas, setAreas] = useState([
+    "Area 1",
+    "Area 2",
+    "Area 3",
+    "Area 4",
+  ]);
+
   return (
     <div className="App">
 
@@ -15,18 +30,20 @@ function App() {
         {/* Title + Selected Input dropdown field */}
         <FormControl className="app_dropdown">
           <Select variant="outlined" value="abc">
-            <MenuItem value="z">Worldwide</MenuItem>
-            <MenuItem value="a">Option 2</MenuItem>
-            <MenuItem value="b">Option 3</MenuItem>
-            <MenuItem value="c">Option 4</MenuItem>
+            {
+              countries.map((country) =>
+                <MenuItem value={country}>{country}</MenuItem>
+              )
+            }
           </Select>
         </FormControl>
         <FormControl className="app_dropdown_border_virtual">
           <Select variant="outlined" value="abc">
-            <MenuItem value="area_1">Area 1</MenuItem>
-            <MenuItem value="area_2">Area 2</MenuItem>
-            <MenuItem value="area_3">Area 3</MenuItem>
-            <MenuItem value="area_4">Area 4</MenuItem>
+            {
+              areas.map((area) =>
+                <MenuItem value={area}>{area}</MenuItem>
+              )
+            }
           </Select>
         </FormControl>
       </div>
