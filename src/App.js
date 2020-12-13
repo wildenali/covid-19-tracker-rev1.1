@@ -7,6 +7,7 @@ import './App.css';
 function App() {
 
   const [countries, setCountries] = useState([]);
+  const [country, setCountry] = useState(["worldwide"]);
 
   const [areas, setAreas] = useState([
     'Area 1',
@@ -20,6 +21,7 @@ function App() {
     'Area 9',
     'Area 10',
   ]);
+  const [area, setArea] = useState(["piliharea"])
 
   // useEffect run a piece of code based on a given condition
   // the code inside here will rin once when the component loads and not again
@@ -39,6 +41,18 @@ function App() {
     getCountriesData(countries);
   }, [])
 
+  const onCountryChange = async (event) => {
+    const countryCode = event.target.value;
+    // console.log("Kodenya -->> ", countryCode);
+    setCountry(countryCode);
+  };
+
+  const onAreaChange = async (event) => {
+    const areaCode = event.target.value;
+    // console.log("Area -->> ", areaCode);
+    setArea(areaCode);
+  };
+
   return (
     <div className="App">
 
@@ -48,7 +62,8 @@ function App() {
 
         {/* Title + Selected Input dropdown field */}
         <FormControl className="app_dropdown">
-          <Select variant="outlined" value="abc">
+          <Select variant="outlined" onChange={onCountryChange} value={country}>
+            <MenuItem value="worldwide">Worldwide</MenuItem>
             {
               countries.map((country) =>
                 <MenuItem value={country.value}>{country.name}</MenuItem>
@@ -57,7 +72,8 @@ function App() {
           </Select>
         </FormControl>
         <FormControl className="app_dropdown_border_virtual">
-          <Select variant="outlined" value="abc">
+          <Select variant="outlined" onChange={onAreaChange} value={area}>
+            <MenuItem value="piliharea">Pilih Area</MenuItem>
             {
               areas.map((area) =>
                 <MenuItem value={area}>{area}</MenuItem>
