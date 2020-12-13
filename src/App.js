@@ -8,7 +8,18 @@ function App() {
 
   const [countries, setCountries] = useState([]);
 
-  const [areas, setAreas] = useState([]);
+  const [areas, setAreas] = useState([
+    'Area 1',
+    'Area 2',
+    'Area 3',
+    'Area 4',
+    'Area 5',
+    'Area 6',
+    'Area 7',
+    'Area 8',
+    'Area 9',
+    'Area 10',
+  ]);
 
   // useEffect run a piece of code based on a given condition
   // the code inside here will rin once when the component loads and not again
