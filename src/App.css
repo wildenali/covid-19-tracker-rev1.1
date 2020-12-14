@@ -8,3 +8,8 @@
   margin-bottom: 20px;
   justify-content: space-between;
 }
+
+.app__stats {
+  display: flex;  /*supaya antar infobox sejajar*/
+  justify-content: space-between; /*supaya antar infobox ada jeda*/
+}
