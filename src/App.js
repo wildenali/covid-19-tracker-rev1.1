@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { MenuItem, FormControl, Select, Menu } from '@material-ui/core'
 import './App.css';
-
+import InfoBox from "./InfoBox";
 
 
 function App() {
@@ -83,10 +83,16 @@ function App() {
         </FormControl>
       </div>
 
-
-      {/* InfoBox Cases */}
-      {/* InfoBox Recovered*/}
-      {/* InfoBox Deaths*/}
+      
+      {/* InfoBox */}
+      <div className="app__stats">
+        {/* InfoBox Cases */}
+        <InfoBox />
+        {/* InfoBox Recovered*/}
+        <InfoBox />
+        {/* InfoBox Deaths*/}
+        <InfoBox />
+      </div>
 
       {/* Table */}
       {/* Graph */}
