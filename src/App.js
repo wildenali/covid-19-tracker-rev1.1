@@ -86,12 +86,14 @@ function App() {
       
       {/* InfoBox */}
       <div className="app__stats">
-        {/* InfoBox Cases */}
-        <InfoBox />
-        {/* InfoBox Recovered*/}
-        <InfoBox />
-        {/* InfoBox Deaths*/}
-        <InfoBox />
+        {/* InfoBoxs  title="Coronavirus recoveries" */}
+        <InfoBox title="Coronavirus Cases" cases={1110} total={2000} />
+              
+        {/* InfoBoxs  title="Coronavirus recoveries" */}
+        <InfoBox title="Recovered" cases={1112} total={1500} />
+
+        {/* InfoBoxs title="Death*/}
+        <InfoBox title="Death" cases={532} total={500} />
       </div>
 
       {/* Table */}
