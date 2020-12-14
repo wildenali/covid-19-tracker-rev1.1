@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { MenuItem, FormControl, Select, Menu } from '@material-ui/core'
 import './App.css';
 import InfoBox from "./InfoBox";
+import Map from "./Map";
+import "leaflet/dist/leaflet.css";
 
 
 function App() {
@@ -22,6 +24,9 @@ function App() {
     'Area 10',
   ]);
   const [area, setArea] = useState(["piliharea"])
+
+  const [mapCenter, setMapCenter] = useState({ lat: -6.087296041219529, lng: 106.74814415551275 }); // pik -6.087296041219529, 106.74814415551275
+  const [mapZoom, setMapZoom] = useState(15);
 
   // useEffect run a piece of code based on a given condition
   // the code inside here will rin once when the component loads and not again
@@ -46,19 +51,22 @@ function App() {
     // console.log("Kodenya -->> ", countryCode);
     setCountry(countryCode);
   };
-
+  
   const onAreaChange = async (event) => {
     const areaCode = event.target.value;
     // console.log("Area -->> ", areaCode);
     setArea(areaCode);
   };
-
+  
   return (
     <div className="App">
 
       {/* Header */}
       <div className="app_header">
         <h1>Corona Virus Tracker</h1>
+        
+        {/* Map */}
+        <Map center={mapCenter} zoom={mapZoom} />
 
         {/* Title + Selected Input dropdown field */}
         <FormControl className="app_dropdown">
@@ -96,10 +104,10 @@ function App() {
         <InfoBox title="Death" cases={532} total={500} />
       </div>
 
+
       {/* Table */}
       {/* Graph */}
 
-      {/* Map */}
     </div>
   );
 }

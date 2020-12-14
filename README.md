@@ -30,6 +30,6 @@
 # Install for Map
 
 1. Install<br/>
-   `$ npm i react-leaflet`
+   `$ npm i react-leaflet@2.7.0`
    atau
-   `$ npm install react-leaflet leaflet`
+   `$ npm install react-leaflet@2.7.0 leaflet`
