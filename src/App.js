@@ -63,8 +63,10 @@ function App() {
 
       {/* Left Side */}
       <div className="app__left">
+        {/* <div className="app__title"> */}
+          <h1 className="app__title">Border Virtual</h1>
+        {/* </div> */}
         {/* Header */}
-        <h1>Corona Virus Tracker</h1>
         <div className="app__header">
           
           {/* Map */}

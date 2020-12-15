@@ -12,6 +12,11 @@ body {
   padding: 20px;
 }
 
+.app__title {
+  text-align: center;
+  color: green;
+}
+
 .app__header {
   display: flex;
   align-items: center;
