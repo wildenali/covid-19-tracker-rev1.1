@@ -3,6 +3,7 @@ import { MenuItem, FormControl, Select, Card, CardContent } from '@material-ui/c
 import './App.css';
 import InfoBox from "./InfoBox";
 import Map from "./Map";
+import Table from "./Table";
 import "leaflet/dist/leaflet.css";
 
 
@@ -135,6 +136,8 @@ function App() {
 
       <Card className="app__right">
         {/* Table */}
+        <Table />
+        
         {/* Graph */}
       </Card>
 
