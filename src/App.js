@@ -29,6 +29,14 @@ function App() {
   const [mapCenter, setMapCenter] = useState({ lat: -6.087296041219529, lng: 106.74814415551275 }); // pik -6.087296041219529, 106.74814415551275
   const [mapZoom, setMapZoom] = useState(15);
 
+  useEffect(() => {
+    fetch("https://disease.sh/v3/covid-19/all")
+      .then((response) => response.json())
+      .then((data) => {
+        setCountryInfo(data);
+      });
+  }, []);
+
   // useEffect run a piece of code based on a given condition
   // the code inside here will rin once when the component loads and not again
   useEffect(() => {
@@ -67,7 +75,7 @@ function App() {
       });
   };
   console.log("Country Info >>>", countryInfo);
-  
+
   const onAreaChange = async (event) => {
     const areaCode = event.target.value;
     // console.log("Area -->> ", areaCode);
@@ -115,13 +123,13 @@ function App() {
         {/* InfoBox */}
         <div className="app__stats">
           {/* InfoBoxs  title="Coronavirus recoveries" */}
-          <InfoBox title="Coronavirus Cases" cases={1110} total={2000} />
+          <InfoBox title="Coronavirus Cases" cases={countryInfo.todayCases} total={countryInfo.cases} />
                 
           {/* InfoBoxs  title="Coronavirus recoveries" */}
-          <InfoBox title="Recovered" cases={1112} total={1500} />
+          <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
 
           {/* InfoBoxs title="Death*/}
-          <InfoBox title="Death" cases={532} total={500} />
+          <InfoBox title="Death" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
         </div>
       </div>
 
