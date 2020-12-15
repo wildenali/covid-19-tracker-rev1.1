@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MenuItem, FormControl, Select, Menu } from '@material-ui/core'
+import { MenuItem, FormControl, Select, Card, CardContent } from '@material-ui/core'
 import './App.css';
 import InfoBox from "./InfoBox";
 import Map from "./Map";
@@ -61,52 +61,56 @@ function App() {
   return (
     <div className="App">
 
-      {/* Header */}
-      <div className="app_header">
+      {/* Left Side */}
+      <div className="app__left">
+        {/* Header */}
         <h1>Corona Virus Tracker</h1>
+        <div className="app__header">
+          
+          {/* Map */}
+          <Map center={mapCenter} zoom={mapZoom} />
+
+          {/* Title + Selected Input dropdown field */}
+          <FormControl className="app_dropdown">
+            <Select variant="outlined" onChange={onCountryChange} value={country}>
+              <MenuItem value="worldwide">Worldwide</MenuItem>
+              {
+                countries.map((country) =>
+                  <MenuItem value={country.value}>{country.name}</MenuItem>
+                )
+              }
+            </Select>
+          </FormControl>
+          <FormControl className="app_dropdown_border_virtual">
+            <Select variant="outlined" onChange={onAreaChange} value={area}>
+              <MenuItem value="piliharea">Pilih Area</MenuItem>
+              {
+                areas.map((area) =>
+                  <MenuItem value={area}>{area}</MenuItem>
+                )
+              }
+            </Select>
+          </FormControl>
+        </div>
+
         
-        {/* Map */}
-        <Map center={mapCenter} zoom={mapZoom} />
+        {/* InfoBox */}
+        <div className="app__stats">
+          {/* InfoBoxs  title="Coronavirus recoveries" */}
+          <InfoBox title="Coronavirus Cases" cases={1110} total={2000} />
+                
+          {/* InfoBoxs  title="Coronavirus recoveries" */}
+          <InfoBox title="Recovered" cases={1112} total={1500} />
 
-        {/* Title + Selected Input dropdown field */}
-        <FormControl className="app_dropdown">
-          <Select variant="outlined" onChange={onCountryChange} value={country}>
-            <MenuItem value="worldwide">Worldwide</MenuItem>
-            {
-              countries.map((country) =>
-                <MenuItem value={country.value}>{country.name}</MenuItem>
-              )
-            }
-          </Select>
-        </FormControl>
-        <FormControl className="app_dropdown_border_virtual">
-          <Select variant="outlined" onChange={onAreaChange} value={area}>
-            <MenuItem value="piliharea">Pilih Area</MenuItem>
-            {
-              areas.map((area) =>
-                <MenuItem value={area}>{area}</MenuItem>
-              )
-            }
-          </Select>
-        </FormControl>
+          {/* InfoBoxs title="Death*/}
+          <InfoBox title="Death" cases={532} total={500} />
+        </div>
       </div>
 
-      
-      {/* InfoBox */}
-      <div className="app__stats">
-        {/* InfoBoxs  title="Coronavirus recoveries" */}
-        <InfoBox title="Coronavirus Cases" cases={1110} total={2000} />
-              
-        {/* InfoBoxs  title="Coronavirus recoveries" */}
-        <InfoBox title="Recovered" cases={1112} total={1500} />
-
-        {/* InfoBoxs title="Death*/}
-        <InfoBox title="Death" cases={532} total={500} />
-      </div>
-
-
-      {/* Table */}
-      {/* Graph */}
+      <Card className="app__right">
+        {/* Table */}
+        {/* Graph */}
+      </Card>
 
     </div>
   );
