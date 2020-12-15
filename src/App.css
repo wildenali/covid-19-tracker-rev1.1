@@ -3,7 +3,7 @@
 }
 
 .App {
-  display: flex;
+  /* display: flex; */
   justify-content: space-evenly;
 }
 
@@ -25,7 +25,7 @@ body {
 }
 
 .app__left {
-  flex: .9;
+  flex: 0.9;
 }
 
 .app__stats {

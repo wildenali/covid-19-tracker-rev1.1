@@ -86,11 +86,11 @@ function App() {
   return (
     <div className="App">
 
+      <div className="app__title">
+        <h1>Border Virtual</h1>
+      </div>
       {/* Left Side */}
       <div className="app__left">
-        {/* <div className="app__title"> */}
-          <h1 className="app__title">Border Virtual</h1>
-        {/* </div> */}
         {/* Header */}
         <div className="app__header">
           
