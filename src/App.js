@@ -5,6 +5,7 @@ import InfoBox from "./InfoBox";
 import Map from "./Map";
 import Table from "./Table";
 import { sortData } from "./utils";
+import LineGraph from "./LineGraph";
 import "leaflet/dist/leaflet.css";
 
 
@@ -53,7 +54,7 @@ function App() {
             value: negara.countryInfo.iso2, // UK, USA, FR
           }));
           setCountries(countries);
-          
+
           const sortedData = sortData(data);
           setTableData(sortedData);
         })
@@ -145,6 +146,8 @@ function App() {
         <Table countries={tableData} />
         
         {/* Graph */}
+        <h3>Live Cases by Worldwide</h3>
+        <LineGraph />
       </Card>
 
     </div>
