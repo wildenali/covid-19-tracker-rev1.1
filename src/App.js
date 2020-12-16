@@ -12,6 +12,7 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState(["worldwide"]);
   const [countryInfo, setCountryInfo] = useState([]);
+  const [tableData, setTableData] = useState([]);
 
   const [areas, setAreas] = useState([
     'Area 1',
@@ -51,6 +52,7 @@ function App() {
             value: negara.countryInfo.iso2, // UK, USA, FR
           }));
           setCountries(countries);
+          setTableData(data);
         })
     };
     getCountriesData(countries);
@@ -76,6 +78,7 @@ function App() {
       });
   };
   console.log("Country Info >>>", countryInfo);
+  // console.log("Data Info >>>", tableData);
 
   const onAreaChange = async (event) => {
     const areaCode = event.target.value;
@@ -136,7 +139,7 @@ function App() {
 
       <Card className="app__right">
         {/* Table */}
-        <Table />
+        <Table countries={tableData} />
         
         {/* Graph */}
       </Card>
