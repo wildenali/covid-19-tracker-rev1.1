@@ -4,6 +4,7 @@ import './App.css';
 import InfoBox from "./InfoBox";
 import Map from "./Map";
 import Table from "./Table";
+import { sortData } from "./utils";
 import "leaflet/dist/leaflet.css";
 
 
@@ -52,7 +53,9 @@ function App() {
             value: negara.countryInfo.iso2, // UK, USA, FR
           }));
           setCountries(countries);
-          setTableData(data);
+          
+          const sortedData = sortData(data);
+          setTableData(sortedData);
         })
     };
     getCountriesData(countries);
