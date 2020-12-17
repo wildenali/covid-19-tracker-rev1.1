@@ -32,6 +32,7 @@ function App() {
 
   const [mapCenter, setMapCenter] = useState({ lat: -6.087296041219529, lng: 106.74814415551275 }); // pik -6.087296041219529, 106.74814415551275
   const [mapZoom, setMapZoom] = useState(15);
+  const [mapCountries, setMapCountries] = useState([]);
 
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
@@ -57,6 +58,8 @@ function App() {
 
           const sortedData = sortData(data);
           setTableData(sortedData);
+          setMapCountries(data);
+          setCountries(countries);
         })
     };
     getCountriesData(countries);
@@ -105,7 +108,7 @@ function App() {
         <div className="app__header">
           
           {/* Map */}
-          <Map center={mapCenter} zoom={mapZoom} />
+          <Map countries={mapCountries} center={mapCenter} zoom={mapZoom} />
 
           {/* Title + Selected Input dropdown field */}
           <FormControl className="app_dropdown">
